@@ -98,9 +98,10 @@ if(t===0){
     h+=`<button class="control" id="connectDone">Готово, все соединены</button>`;
   }else if(st0==='cause'){
     const cause=['Ток в кабеле создал магнитное поле.','При выключенной цепи отклонения нет.','Буря — это фон, не зависящий от станции.'];
+    const keys=['cable','zero','storm'];
     h+=`<p class="small">Шаг 2. Сопоставь событие и причину.</p>`;
-    h+=`<div class="console-parts">`+cause.map((c,i)=>`<button class="console-part" data-drag="match:${i}">${esc(c)}</button>`).join('')+`</div>`;
-    h+=`<div class="console-grid">`+cause.map((c,i)=>`<button class="console-slot" id="matchSlot${i}" data-target="matchSlot${i}"><b>${i+1}.</b> ${esc(state.matchSlots[i]||'помести причин')}</button>`).join('')+`</div>`;
+    h+=`<div class="console-parts">`+cause.map((c,i)=>`<button class="console-part" data-drag="match:${keys[i]}">${esc(c)}</button>`).join('')+`</div>`;
+    h+=`<div class="console-grid">`+cause.map((c,i)=>`<button class="console-slot" id="matchSlot${i}" data-target="matchSlot${i}" data-answer="${keys[i]}"><b>${i+1}.</b> ${esc(state.matchSlots&&state.matchSlots[i]?state.matchSlots[i].slice(6):'помести причин')}</button>`).join('')+`</div>`;
     h+=`<div class="small">Каждому событию — своя причина.</div>`;
     h+=`<button class="control" id="causeDone">Готово, причины расставлены</button>`;
   }else{
@@ -234,7 +235,7 @@ if(!window._matchWired){window._matchWired=true;$('work').addEventListener('clic
   if(it){state.matchSel=+it.dataset.idx;render();return}
   const role=e.target.closest('.match-role');
   if(role){const r=+role.dataset.idx,item=state.matchSel;if(item!==null&&item<3){state.consoleMatches=state.consoleMatches||[null,null,null];state.consoleMatches.forEach((v,ii)=>{if(v===r)state.consoleMatches[ii]=null});state.consoleMatches[item]=r;state.matchSel=null;}render();return}
-  if(e.target.id==='connectDone'){const m=state.consoleMatches||[null,null,null];if(m.every((x,i)=>x===i)){state.t0stage='cause';state.matchSel=null;setFeedback('Детали соединены. Теперь сопоставь причины.');render();return}setFeedback('Соедини все детали правильно: источник→энергия, проводник→поле, компас→обнаруживает поле.');return}
+  if(e.target.id==='connectDone'){const m=state.consoleMatches||[null,null,null];if(m.every((x,i)=>x===i)){state.t0stage='cause';state.matchSel=null;state.matchSlots=[null,null,null];setFeedback('Детали соединены. Теперь сопоставь причины.');render();return}setFeedback('Соедини все детали правильно: источник→энергия, проводник→поле, компас→обнаруживает поле.');return}
   if(e.target.id==='causeDone'){if(state.matchSlots&&state.matchSlots.every(Boolean)){state.t0stage='compass';state.consoleStarted=true;state.on=false;state.matchSel=null;setFeedback('Переходи к замерам компаса.');render();return}setFeedback('Расставь все три причинно-следственные связи.');return}
 })}
 on('compassReading','input',e=>{const cur=state.on?'onReading':'zeroReading';state[cur]=e.target.value;state.pendingObservation=null;save();});
