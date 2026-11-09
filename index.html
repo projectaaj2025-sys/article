@@ -46,8 +46,8 @@ const PHYSICS_CORE={
 };
 const defs=[
  {loc:'Палуба',bg:'deck_bg',name:'Оживи пульт станции',need:'Собери пульт: соедини каждую деталь с её ролью, затем замерь компас без тока и с током.',given:'Ток 0 и 2 А · расстояние 0,30 м · без бури',speaker:'Мира',portrait:'mira',quotes:['Пульт молчит. Соберём его вместе — и разберёмся, в чём дело.','Замерь компас дважды: сначала без тока, потом с током. Только так увидишь, что именно делает кабель.','Стрелка отклонилась только когда цепь включена? Значит, дело в кабеле, а не в сиянии.','Компас показывает магнитное поле. Запомни это — пригодится в рубке.'],hint:['Распредели детали по ролям: источник даёт энергию, проводник при токе создаёт поле, компас показывает поле.','Сначала запиши угол с выключенной цепью, потом включи цепь и запиши угол снова.','Стрелка отклоняется при токе? Это поле проводника, а не буря.','Проверь: без тока угол около 0°, с током 2 А — заметное отклонение.']},
- {loc:'Рубка',bg:'cabin_bg',name:'Опыт: ток и стрелка',need:'Измерь угол при токах 0, 1 и 2 А, выбери вывод и собери цепочку причин.',given:'Расстояние 0,30 м · токи 0–2 А · без бури',speaker:'Ника',portrait:'nika',quotes:['Посмотрим, как ток влияет на стрелку компаса. Я помогу записать опыт.','Меняй только ток. Расстояние и бурю оставь как есть — иначе не понять, что именно повлияло на стрелку.','Запиши угол для каждого тока. Эти записи пригодятся на следующем этапе.','Собери цепочку: сначала тока стало больше, потом усилилось поле, потом сильнее отклонилась стрелка.'],hint:['Меняй только ток. Для каждого положения ползунка вводи число с прибора и сохраняй запись.','Расставь события по порядку: ток → поле → стрелка.','В этой модели больший ток создаёт большее поле и сильнее отклоняет стрелку.','Записи не сходятся? Повтори замер при том же токе — прибор не обманет.']},
- {loc:'Рубка',bg:'cabin_bg',name:'Кто виноват: небо или кабель',need:'Сними три показания, меняя по одному параметру: то ток, то бурю. Расстояние оставь прежним.',given:'Переменные опыта: ток, расстояние, буря',speaker:'Ника',portrait:'nika',quotes:['А что если менять по одному параметру? Так честнее.','Сравни три записи. Между соседними опытами меняй только один параметр.','Буря добавляет к полю, но основная причина отклонения — ток в кабеле.','В лаборатории PhET смена полярности тока разворачивает стрелку — поле меняет направление вместе с током.'],hint:['Как отличить влияние станции от влияния неба?','Сравни три записи, меняя между ними только один параметр.','Ток в проводнике создаёт магнитное поле; буря лишь добавляет к нему.','Вывод: кабель — основная причина, буря — фон.']},
+ {loc:'Рубка',bg:'cabin_bg',name:'Тест: ток и компас',need:'Ответь на 5 вопросов по магнитному полю тока.',given:'5 вопросов с одним правильным ответом',speaker:'Ника',portrait:'nika',quotes:['Прочитай вопрос внимательно и выбери один ответ.','Каждый вопрос оценивается в один балл.','Нужно набрать минимум 4 из 5 правильных ответов.','Проверь себя перед отправкой.'],hint:['Ток в проводнике создаёт магнитное поле вокруг себя.','Компас реагирует на суммарное магнитное поле.','Без тока стрелка компаса показывает на север (≈0°).','При токе 2 А и расстоянии 30 см отклонение ≈25°.','Чем сильнее ток, тем сильнее поле и больше отклонение.']},
+{loc:'Рубка',bg:'cabin_bg',name:'Сопоставь: явление и причина',need:'Соедини каждое наблюдение с его физической причиной.',given:'6 пар для сопоставления (соединить линиями)',speaker:'Ника',portrait:'nika',quotes:['Прочитай каждое наблюдение и найди его причину.','Соедини линиими наблюдение с правильным объяснением.','Все 6 пар должны быть соединены правильно.','Проверь перед отправкой.'],hint:['Компас без тока ≈0° — нет поля от провода.','Компас с током ≈25° — проводник создаёт поле.','Буря добавляет отклонение ≈8° независимо от станции.','Чем ближе к кабелю, тем сильнее поле и отклонение.','Обратный ток — обратное отклонение стрелки.','Стальной сердечник усиливает поле электромагнита.']},
  {loc:'Электромастерская',bg:'engine_bg',name:'Собери цепь и подними ящик',need:'Собери цепь и кран, который удержит 15 кг с запасом не менее 20 %. Ток не выше 2 А.',given:'Ящик 15 кг · запас ≥ 20 % · ток ≤ 2 А',speaker:'Болок',portrait:'bolok',quotes:['Начнём с цепи. Выключатель пока разомкнут.','Соедини источник, выключатель и обмотку — без замкнутой цепи тока не будет.','Автомат отключит ток выше 2 А. Не выкручивай ток — добавляй витки.','Ящик весит 15 кг, а кран должен держать с запасом — не менее 18 кг.'],hint:['Как замкнуть путь тока через источник, выключатель и обмотку?','Соедини разные элементы проводами, потом замкни выключатель. Установи обмотку и сердечник.','В замкнутой цепи ток создаёт магнитное поле. Модель крана зависит от μ, N и I.','Запас 20 % — это грузоподъёмность не менее 18 кг для ящика 15 кг.']},
  {loc:'Электромастерская',bg:'engine_bg',name:'Расчёт грузоподъёмности',need:'Собери формулу грузоподъёмности и рассчитай её для стального сердечника.',given:'N = 300 витков · ток 1,5 А · μ = 200',speaker:'Ника',portrait:'nika',quotes:['Не на самой границе. На границе красиво только в кино.','Собирай формулу: коэффициент, μ, число витков N и ток I.','Проверь расчёт: 0,000125 × 200 × 300 × 1,5 = 11,25 кг.'],hint:['От каких величин зависит грузоподъёмность крана?','Помести коэффициент и три множителя в четыре слота.','Используй калибровку модели: коэффициент × μ × N × I.','Порядок множителей не важен — главное, чтобы все четыре были на месте.']},
  {loc:'Кают-компания',bg:'mess_bg',name:'Безопасный план станции',need:'Найди необходимый ток, отметь выводы и выбери безопасный план.',given:'Ящик 15 кг · N = 500 витков · μ = 1 (воздух)',speaker:'Ника',portrait:'nika',quotes:['Выберем безопасный план и проверим роль сердечника.','Без стали ток нужен огромный — 240 А. Автомат не выдержит.','Стальной сердечник усиливает поле катушки — вот почему он так важен.'],hint:['Как изменится требуемый ток без стали?','Вырази ток из формулы и сравни с пределом автомата 2 А.','Для воздушного сердечника μ = 1; формула линейна по току.','Для 15 кг без сердечника нужен ток 240 А — это выше предела автомата.']}
@@ -72,10 +72,10 @@ function measureHTML(suffix='°'){return `<div class="meter"><div class="eyebrow
 function slider(label,id,min,max,step,v,unit,digits=1){return `<div class="slider-row"><div class="slider-label"><label for="${id}">${label}</label><b>${num(v,digits)} ${unit}</b></div><input id="${id}" type="range" min="${min}" max="${max}" step="${step}" value="${v}" aria-label="${label}"></div>`}
 function recordTarget(){let ready=state.pendingObservation&&state.pendingObservation.task===state.task+1;return `<div class="reading-row"><label for="obsReading">Показание, °</label><input class="answer-input" id="obsReading" inputmode="decimal" value="${esc(state.manualReading)}" aria-label="Введите измеренное отклонение в градусах" placeholder="0,0"><button class="control" id="prepareObservation">Создать карточку</button></div>${ready?`<div class="inline"><button class="record" data-drag="observation">▧ Твоя запись · ${num(state.pendingObservation.reported)}°</button><button class="drop" data-target="journal">⇣ В журнал</button></div>`:'<div class="small">Введи число, создай карточку и отнеси её в журнал.</div>'}`}
 const THEORY_TASKS=[
- {kind:'fill',prompt:'Вокруг проводника, по которому идёт электрический …, возникает магнитное поле.',answers:['ток'],solution:'ток',why:'Ток в проводнике создаёт вокруг него магнитное поле. Это можно обнаружить по отклонению стрелки компаса.',limit:2},
- {kind:'fill',prompt:'Назови основную единицу силы тока в СИ: …',answers:['ампер','а'],solution:'ампер (А)',why:'В СИ силу тока измеряют в амперах. Обозначение единицы — А.',limit:2},
+ {kind:'test',prompt:'Что создаёт магнитное поле вокруг проводника?',answers:['ток'],solution:'Ток в проводнике создаёт вокруг него магнитное поле.',limit:1},
+ {kind:'test',prompt:'На что реагирует компас?',answers:['суммарное поле'],solution:'Компас реагирует на суммарное магнитное поле от всех источников.',limit:1},
  {kind:'fill',prompt:'В честном опыте изменяют только … условие, а остальные сохраняют.',answers:['одно','1'],solution:'одно',why:'Если менять только одно условие, разницу результатов можно связать именно с этим изменением.',limit:2},
- {kind:'test',prompt:'В какой цепи может идти ток?',answers:['closed'],solution:'В замкнутой цепи с источником и потребителем.',why:'Для тока нужен источник и непрерывный замкнутый путь. При разомкнутом выключателе путь прерывается.',limit:1}
+ {kind:'test',prompt:'В какой цепи может идти ток?',answers:['closed'],solution:'В замкнутой цепи с источником и потребителем.',limit:1}
 ];
 function scoreTotal(){return state.stagePoints.reduce((a,v)=>a+(v===1?1:0),0)+state.theoryItems.reduce((a,v)=>a+(v.solved?1:0),0)}
 function animateClass(el,name,ms=700){if(!el)return;el.classList.remove(name);void el.offsetWidth;el.classList.add(name);setTimeout(()=>el.classList.remove(name),ms)}
@@ -120,49 +120,67 @@ if(t===0){
   }
 }
 if(t===1){
-  const chain={current:'Тока стало больше',field:'Поле усилилось',needle:'Стрелка отклонилась сильнее',heat:'Провод стал тяжелее',battery:'Буря усилилась'};
-  const st1=state.t1stage||'readings';
-  h=`<div class="compact-head"><h3>Опыт: ток и стрелка компаса</h3><div class="compact-reading">${num(angle())}°</div></div>`;
-  if(st1==='readings'){
-    h+=`<p class="small">Шаг 1 из 3. Установи ток на ползунке, считай угол с компаса и запиши для токов 0, 1 и 2 А.</p>`;
-    h+=`${slider('Ток I','current',0,2,1,state.I,'А')}`;
-    h+=`<div class="compass-pic-wrap" style="margin:8px 0"><img class="compass-bg" src="${img('compass')}"><div class="compass-needle" style="--needle:${angle().toFixed(2)}deg"></div></div>`;
-    h+=`<label>Угол при токе ${state.I} А, °</label><input class="answer-input" id="labReading" inputmode="decimal" value="${esc(state.labReading||'')}" placeholder="0,0"><button class="control" id="recordLab">Записать</button>`;
-    h+=`<div class="lab-readings">`+state.labData.map((x,i)=>`${i} А: ${x===null?'—':esc(num(x))+'°'}`).join(' · ')+`</div>`;
-    const done1=state.labData.every(x=>x!==null);
-    if(done1){
-      h+=`<button class="control" id="t1next">Далее — вывод из измерений</button>`;
-    }
-  }else if(st1==='conclusion'){
-    h+=`<p class="small">Шаг 2 из 3. Что показывают измерения? Выбери верный вывод.</p>`;
-    h+=`<select class="cause-select" id="labConclusion"><option value="">Выбери вывод</option><option value="grows">Отклонение растёт с током</option><option value="falls">Отклонение падает с током</option><option value="same">Отклонение не меняется</option></select>`;
-    h+=`<button class="control" id="t1next2">Далее — цепочка причин</button>`;
-  }else{
-    h+=`<p class="small">Шаг 3 из 3. Собри цепочку причин и следствий. Две карточки лишние.</p>`;
-    h+=`<div class="chain-parts">`+Object.entries(chain).map(([id,name])=>`<button class="chain-part" data-drag="chain:${id}">${name}</button>`).join('')+`</div>`;
-    h+=`<div class="cause-grid">`+[0,1,2].map(i=>`<button class="chain-slot" id="labSlot${i}" data-target="labSlot${i}"><b>${i+1}.</b> ${esc(chain[state.labSlots[i]]||'помести событие')}</button>`).join('')+`</div>`;
+  if(!state.t1questions){
+    state.t1questions=[
+      {q:'Что создаёт магнитное поле вокруг проводника?',a:['Ток','Магнит','Свет'],c:0},
+      {q:'Что показывает компас без тока?',a:['≈0°','≈25°','≈90°'],c:0},
+      {q:'Что показывает компас с током 2 А?',a:['≈0°','≈25°','≈90°'],c:1},
+      {q:'Чем сильнее ток, тем… поле проводника?',a:['сильнее','слабее','такое же'],c:0},
+      {q:'На что реагирует компас?',a:['на суммарное поле','только на бурю','только на кабель'],c:0}
+    ];
+    state.t1answers=[null,null,null,null,null];
+    state.t1q=0;
+    state.t1submitted=false;
   }
-}
-if(t===2){
-  const st2=state.t2stage||'experiment';
-  h=`<div class="compact-head"><h3>Честный опыт</h3><div class="compact-reading">${num(angle())}°</div></div>`;
-  if(st2==='experiment'){
-    h+=`<div class="small">Шаг 1 из 3. Сними три показания. Меняй по одному параметру: то ток, то бурю.</div>`;
-    h+=`<div class="compact-experiment">${slider('Ток I','current',0,2,.1,state.I,'А')}${slider('Расстояние d','dist',.1,1,.05,state.d,'м',2)}<button class="control" id="storm">${state.storm?'Буря: вкл.':'Буря: выкл.'}</button></div>${recordTarget()}<div class="compact-list"><span class="eyebrow">Твои записи</span>${state.obs.filter(x=>x.task===3).slice(-3).map((o,i)=>`<div>${i+1}. I = ${num(o.I)} А · d = ${num(o.d,2)} м · буря ${o.storm?'вкл':'выкл'} → ${num(o.reported)}°</div>`).join('')||'<div>Пока нет записей.</div>'}</div>`;
-    const last3=state.obs.filter(x=>x.task===3).slice(-3);
-    if(last3.length===3){
-      h+=`<button class="control" id="t2next">Далее — вывод из наблюдений</button>`;
-    }
-  }else if(st2==='conclusion'){
-    h+=`<div class="small">Шаг 2 из 3. Выбери объяснение наблюдений.</div>`;
-    h+=`<label for="cause" class="small">Выбери вывод:</label><select class="cause-select" id="cause"><option value="">Выбери объяснение</option><option value="sky">Только небо влияет на показание</option><option value="wire">Кабель; буря действует независимо от работы станции</option><option value="crane">Отклонение вызывает масса ящика</option></select>`;
-    h+=`<button class="control" id="t2next2">Далее — лабораторное испытание</button>`;
+  let qi=state.t1q;
+  let q=state.t1questions[qi];
+  let correct=state.t1questions.reduce((n,x,i)=>n+(state.t1answers[i]===x.c?1:0),0);
+  h=`<div class="compact-head"><h3>Тест: ток и компас</h3><div class="compact-reading">Вопрос ${qi+1} из 5 · правильно: ${correct}</div></div>`;
+  h+=`<p class="small">${esc(q.q)}</p>`;
+  q.a.forEach((ans,ai)=>{
+    h+=`<label style="display:block;margin:6px 0"><input type="radio" name="t1ans" value="${ai}" ${state.t1answers[qi]===ai?'checked':''}> ${ans}</label>`;
+  });
+  if(qi<4){
+    h+=`<button class="control" id="t1next">Следующий вопрос</button>`;
   }else{
-    h+=`<div class="small">Шаг 3 из 3. Испытание в лаборатории.</div>`;
-    h+=`<div class="card" style="padding:8px;margin:8px 0"><b>Испытание в лаборатории</b><div class="small">Проверь, что происходит со стрелкой, если изменить направление тока.</div><button class="control" id="openPhet">Открыть лабораторию PhET</button><label for="phetConclusion" class="small" style="display:block">Что ты заметил?</label><select class="cause-select" id="phetConclusion"><option value="">Выбери результат опыта</option><option value="reverse">Направление стрелки изменяется</option><option value="same">Направление стрелки остаётся прежним</option><option value="none">При любом напряжении поля нет</option></select></div>`;
+    h+=`<button class="control" id="t1submit">Отправить тест</button>`;
   }
-}
-if(t===3){
+  if(state.t1submitted){
+    h+=`<div class="small">${correct>=4?'Тест пройден.':'Нужно минимум 4 правильных ответа из 5.'}</div>`;
+  }
+}if(t===2){
+  if(!state.t2items){
+    state.t2items=[
+      {obs:'Компас без тока показывает ≈0°',cause:'Нет тока — нет поля от провода'},
+      {obs:'Компас с током показывает ≈25°',cause:'Проводник создаёт магнитное поле'},
+      {obs:'Буря добавляет ≈8° отклонения',cause:'Магнитная буря — независимый фактор'},
+      {obs:'Чем ближе к кабелю, тем сильнее отклонение',cause:'Поле убывает с расстоянием от провода'},
+      {obs:'Обратный ток — обратное отклонение',cause:'Направление поля зависит от направления тока'},
+      {obs:'Стальной сердечник усиливает электромагнит',cause:'Сталь концентрирует и усиливает магнитное поле'}
+    ];
+    state.t2matches=[null,null,null,null,null,null];
+    state.t2shuffled=[0,1,2,3,4,5].sort(()=>Math.random()-0.5);
+    state.t2sel=null;
+  }
+  h=`<div class="compact-head"><h3>Сопоставь: явление и причина</h3><div class="compact-reading">${state.t2matches.filter(x=>x!==null).length} из 6 соединено</div></div>`;
+  h+=`<p class="small">Соедини каждое наблюдение с его физической причиной.</p>`;
+  h+=`<div class="match-wrap"><svg class="match-svg"></svg>`;
+  h+=`<div class="match-col match-left"><div class="match-title">Наблюдение</div>`;
+  state.t2shuffled.forEach((i,idx)=>{
+    let m=state.t2matches[i];
+    h+=`<button class="match-item${state.t2sel===i?' selected':''}${m!==null?' matched':''}" data-idx="${i}" style="top:${10+idx*78}px">${esc(state.t2items[i].obs)}</button>`;
+  });
+  h+=`</div><div class="match-col match-right"><div class="match-title">Причина</div>`;
+  state.t2shuffled.forEach((i,idx)=>{
+    h+=`<button class="match-role${state.t2sel===('r'+i)?' selected':''}${state.t2matches.indexOf(i)!==-1?' matched':''}" data-idx="${i}" style="top:${10+idx*78}px">${esc(state.t2items[i].cause)}</button>`;
+  });
+  h+=`</div></div>`;
+  h+=`<div class="small">Выбрано: ${state.t2sel!==null&&state.t2sel<6?state.t2items[state.t2sel].obs:'ничего'}</div>`;
+  const allDone=state.t2matches.every(x=>x!==null);
+  if(allDone){
+    h+=`<button class="control" id="t2submit">Проверить сопоставление</button>`;
+  }
+}if(t===3){
  const tabs=`<div class="circuit-tabs"><button id="wireTab" class="${state.circuitPage==='wire'?'active':''}">① Цепь</button><button id="craneTab" class="${state.circuitPage==='crane'?'active':''}">② Кран</button><span class="actual-current">Ток: ${num(actualCurrent())} А · провода ${state.wires.length}/3</span></div>`;
  if(state.circuitPage==='wire'){
   const pin=(id,label,aria)=>`<button class="circuit-pin ${wireStart===id?'selected':''} ${state.wires.some(w=>w.includes(id))?'connected':''}" data-pin="${id}" aria-label="${aria}">${label}</button>`;
@@ -203,17 +221,22 @@ function drawMatchLines(){
   const svg=wrap.querySelector('.match-svg');
   const items=wrap.querySelectorAll('.match-item');
   const roles=wrap.querySelectorAll('.match-role');
-  const matches=state.consoleMatches||[null,null,null];
+  let matches=null;
+  if(state.task===0)matches=state.consoleMatches||[null,null,null];
+  if(state.task===2)matches=state.t2matches||[null,null,null,null,null,null];
+  if(!matches)return;
   let paths='';
   items.forEach((it,i)=>{
     const r=matches[i];if(r===null)return;
-    const a=it.getBoundingClientRect(),b=roles[r].getBoundingClientRect(),c=wrap.getBoundingClientRect();
-    paths+=`<path d="M ${a.right-c.left} ${(a.top+a.bottom)/2-c.top} L ${b.left-c.left} ${(b.top+b.bottom)/2-c.top}" stroke="#2c5f5f" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+    const roleIdx=state.task===2?state.t2shuffled?state.t2shuffled.indexOf(r):r:r;
+    const b=roles[roleIdx]?roles[roleIdx]:roles[r];
+    if(!b)return;
+    const a=it.getBoundingClientRect(),bb=b.getBoundingClientRect(),c=wrap.getBoundingClientRect();
+    paths+=`<path d="M ${a.right-c.left} ${(a.top+a.bottom)/2-c.top} L ${bb.left-c.left} ${(bb.top+bb.bottom)/2-c.top}" stroke="#2c5f5f" stroke-width="3" fill="none" stroke-linecap="round"/>`;
   });
   svg.innerHTML=paths;
   svg.style.height=wrap.clientHeight+'px';
-}
-function syncCue(){let w=$('work'),cue=$('scrollCue');cue.hidden=true;requestAnimationFrame(()=>{cue.hidden=w.scrollHeight<=w.clientHeight+1})}
+}function syncCue(){let w=$('work'),cue=$('scrollCue');cue.hidden=true;requestAnimationFrame(()=>{cue.hidden=w.scrollHeight<=w.clientHeight+1})}
 function renderScene(){
  const oldDial=document.querySelector('.scene-dial'),oldNeedle=oldDial?oldDial.style.getPropertyValue('--angle'):null;const d=defs[state.task];$('bg').src=img(d.bg);$('location').textContent=d.loc;
  $('sceneGoal').textContent=['Запусти пульт','Проведи опыт','Отдели небо от кабеля','Собери цепь и подними ящик','Найди правило модели','Выбери решение'][state.task];
@@ -237,40 +260,19 @@ function guideStep(){
  let t=state.task;if(state.done.includes(t))return [1,1,t===5?'Исследование завершено. Нажми «Итог урока», чтобы увидеть результат.':'Этап пройден. Нажми «Дальше», чтобы продолжить историю.','#check'];
  if(t===0){const st0=state.t0stage||'connect';const m=state.consoleMatches||[null,null,null];if(st0==='connect'){if(!m.every((x,i)=>x===i))return [1,7,'Соедини каждую деталь с её ролью — выбери деталь, потом роль.','.match-item'];return [2,7,'Нажми «Готово, все соединено».','#connectDone']}if(st0==='cause'){if(!state.matchSlots||!state.matchSlots.every(Boolean))return [3,7,'Сопоставь каждое событие с причиной.','.console-part'];return [4,7,'Нажми «Готово, все причины на месте».','#causeDone']}if(!state.record0)return [5,7,'Считай угол с компаса без тока и с током, запиши оба замера.','#compassReading'];return [6,7,'Нажми «Проверить».','#check']}
  if(t===1){
-  if(state.t1stage==='readings'){
-    let missing=state.labData.findIndex(x=>x===null),idx=repairField==='labReading'?repairIndex:missing;
-    if(idx>=0){if(state.I!==idx)return [1,4,`Установи ток ${idx} А на ползунке.`,`#current`];if(!state.labReading)return [1,4,'Считай угол с компаса и введи число.','#labReading'];return [1,4,'Нажми «Записать замер».','#recordLab']}
-    return [2,4,'Все три замера записаны. Нажми «Далее — вывод из измерений».','#t1next'];
+  if(!state.t1submitted){
+    let qi=state.t1q;
+    if(state.t1answers[qi]===null)return [1,7,'Выбери ответ на вопрос.','input[name=t1ans]'];
+    if(qi<4)return [2,7,'Нажми «Следующий вопрос».','#t1next'];
+    return [3,7,'Нажми «Отправить тест».','#t1submit'];
   }
-  if(state.t1stage==='conclusion'){
-    if(!state.labConclusion)return [2,4,'Выбери вывод: отклонение растёт с током.','#labConclusion'];
-    return [3,4,'Нажми «Далее — цепочка причин».','#t1next2'];
+  return [1,7,'Тест отправлен. Нажми «Проверить».','#check'];
+} if(t===2){
+  if(!state.t2matches.every(x=>x!==null)){
+    return [1,7,'Соедини наблюдение с причиной.','.match-item'];
   }
-  if(state.t1stage==='chain'){
-    if(state.labSlots.some(x=>!x))return [3,4,'Собери цепочку причин и следствий.','.chain-part'];
-    return [4,4,'Нажми «Проверить».','#check'];
-  }
-  return [1,4,'Запиши три показания.','#current'];
-}
- if(t===2){
-  if(state.t2stage==='experiment'){
-    const last3=state.obs.filter(o=>o.task===3).slice(-3);
-    if(last3.length===0){if(!state.manualReading)return [1,7,'Введи число с прибора и создай карточку наблюдения.','#obsReading'];return [1,7,'Нажми «Создать карточку», затем перенеси её в журнал.','#prepareObservation']}
-    if(last3.length<3)return [Math.min(last3.length+1,3),7,'Сними ещё показание, меняя только один параметр.','#current'];
-    return [4,7,'Все три замера сделаны. Нажми «Далее — вывод из наблюдений».','#t2next'];
-  }
-  if(state.t2stage==='conclusion'){
-    if(!state.cause)return [4,7,'Выбери объяснение наблюдений.','#cause'];
-    return [5,7,'Нажми «Далее — лабораторное испытание».','#t2next2'];
-  }
-  if(state.t2stage==='lab'){
-    if(!state.phetOpened)return [5,7,'Открой лабораторию PhET.','#openPhet'];
-    if(!state.phetConclusion)return [6,7,'Выбери результат опыта.','#phetConclusion'];
-    return [7,7,'Нажми «Проверить».','#check'];
-  }
-  return [1,7,'Начни с замера показаний компаса.','#obsReading'];
-}
- if(t===3){if(state.circuitPage==='wire'){if(wireStart)return [1,4,'Теперь нажми вторую клемму другого элемента или перетащи провод к ней.',null];if(!PHYSICS_CORE.circuit(state.wires,true))return [1,4,'Соедини клеммы разных элементов: перетащи одну к другой или нажми обе по очереди.','#circuitBoard'];if(!state.circuitClosed)return [1,4,'Все элементы соединены. Нажми «Замкнуть» под схемой.','#circuitSwitch'];return [1,4,'Нажми «К крану →», чтобы установить обмотку и сердечник.','#nextCrane']}
+  return [2,7,'Нажми «Проверить сопоставление».','#t2submit'];
+} if(t===3){if(state.circuitPage==='wire'){if(wireStart)return [1,4,'Теперь нажми вторую клемму другого элемента или перетащи провод к ней.',null];if(!PHYSICS_CORE.circuit(state.wires,true))return [1,4,'Соедини клеммы разных элементов: перетащи одну к другой или нажми обе по очереди.','#circuitBoard'];if(!state.circuitClosed)return [1,4,'Все элементы соединены. Нажми «Замкнуть» под схемой.','#circuitSwitch'];return [1,4,'Нажми «К крану →», чтобы установить обмотку и сердечник.','#nextCrane']}
   if(!PHYSICS_CORE.circuit(state.wires,state.circuitClosed))return [1,4,'Вернись на вкладку «Цепь», собери путь и замкни выключатель.','#wireTab'];if(!state.coil)return [2,4,'Перетащи «Обмотка» из лотка на «Гнездо магнита» на сцене.','[data-drag="coil"]'];if(state.core!=='steel')return [2,4,'Перетащи «Сталь» из лотка на «Гнездо магнита».','[data-drag="steel"]'];if(state.tripped)return [2,4,'Автомат отключил ток. Подожди восстановления и установи безопасное значение.','#craneCurrent'];if(mass()<15)return [3,4,'Подбирай витки N и ток. Следи за грузоподъёмностью и лимитом автомата.','#turns'];if(!state.crate)return [3,4,'Перенеси ящик к надписи «Крюк» на сцене.','.scene-crate'];if(mass()<18)return [3,4,'Добавь запас: грузоподъёмность должна быть на 20 % больше массы ящика.','#turns'];return [4,4,'Ящик закреплён. Нажми «Проверить».','#check']}
  if(t===4){if(document.querySelector('.slot.wrong'))return [1,3,'Найди подсвеченный слот. Выбери другой чип и нажми этот слот.','.slot.wrong'];if(state.slots.some(x=>!x))return [1,3,'Нажми чип с величиной, потом слот. Заполни формулу.','.chip'];if(!state.answer5||repairField==='answer5')return [2,3,'Открой «Теория», подставь данные в формулу и введи массу в поле рядом с «кг».','#answer5'];return [3,3,'Нажми «Проверить». При нужде сравни чипы с формулой в теории.','#check']}
  if(!state.answer6||repairField==='answer6')return [1,5,'Открой «Теория», вырази ток и введи результат в поле «Требуемый ток».','#answer6'];if(!state.checks.every(Boolean))return [2,5,'Прочитай три вывода и отметь те, что подтверждают опыты.','[data-check]'];if(!state.rescueChoice||repairField==='rescueChoice')return [3,5,'Прокрути карточку вниз и выбери безопасный план для крана.','#rescueChoice'];if(!state.coreReason||repairField==='coreReason')return [4,5,'Выбери, как работает стальной сердечник.','#coreReason'];return [5,5,'Нажми «Проверить».','#check'];
@@ -281,7 +283,7 @@ function guideStep(){
 }
 
 function updateGuide(){if(!$('need')||!defs[state.task])return;let [step,total,text,target]=guideStep();let needsTheory=target==='#check'&&!state.done.includes(state.task)&&state.task<4&&!state.theoryItems[state.task].resolved;if(needsTheory){let item=state.theoryItems[state.task];target=item.response.trim()?'#verifyTheory':'#theoryAnswer';text=item.response.trim()?'Нажми «Проверить теорию».':'Выполни задание по теории внизу рабочей карточки.'}$('needLabel').textContent=needsTheory?'ТЕОРИЯ · 1 БАЛЛ':`ЧТО ДЕЛАТЬ · ШАГ ${step} ИЗ ${total}`;$('need').textContent=text;document.querySelectorAll('.guided-target').forEach(el=>el.classList.remove('guided-target'));if(target){let el=document.querySelector(target);if(el){el.classList.add('guided-target');if(!modalName&&$('work').contains(el)){let r=el.getBoundingClientRect(),w=$('work').getBoundingClientRect();if(r.top<w.top+4||r.bottom>w.bottom-4)el.scrollIntoView({block:'nearest',inline:'nearest'})}}}}
-function render(){let d=defs[state.task];$('run').textContent=state.task===0?'Показать угол':'▶ Запустить';if(state.done.includes(state.task)&&state.task===5){$('check').textContent='Итог урока';$('check').onclick=showEnding}else if(state.done.includes(state.task)&&state.task<5){$('check').textContent='Дальше →';$('check').onclick=()=>enterTask(state.task+1)}else{$('check').textContent='✓ Проверить';$('check').onclick=check}$('chapter').textContent=`ПОЛЯРНАЯ СТАНЦИЯ · ЭТАП ${state.task+1} ИЗ 6`;$('title').textContent=d.name;$('need').textContent=d.need;$('given').textContent=d.given;$('progress').innerHTML=defs.map((_,i)=>`<span class="${state.done.includes(i)?'done':i===state.task?'current':''}"></span>`).join('');$('hintText').textContent=state.hints[state.task]?d.hint[state.hints[state.task]-1]:'Три подсказки — по одной за нажатие.';renderScene();renderWork();if(state.task===0&&state.t0stage==='connect')requestAnimationFrame(drawMatchLines);setFeedback(feedback,good);updateScore();updateGuide();save()}
+function render(){let d=defs[state.task];$('run').textContent=state.task===0?'Показать угол':'▶ Запустить';if(state.done.includes(state.task)&&state.task===5){$('check').textContent='Итог урока';$('check').onclick=showEnding}else if(state.done.includes(state.task)&&state.task<5){$('check').textContent='Дальше →';$('check').onclick=()=>enterTask(state.task+1)}else{$('check').textContent='✓ Проверить';$('check').onclick=check}$('chapter').textContent=`ПОЛЯРНАЯ СТАНЦИЯ · ЭТАП ${state.task+1} ИЗ 6`;$('title').textContent=d.name;$('need').textContent=d.need;$('given').textContent=d.given;$('progress').innerHTML=defs.map((_,i)=>`<span class="${state.done.includes(i)?'done':i===state.task?'current':''}"></span>`).join('');$('hintText').textContent=state.hints[state.task]?d.hint[state.hints[state.task]-1]:'Три подсказки — по одной за нажатие.';renderScene();renderWork();if((state.task===0&&state.t0stage==='connect')||state.task===2)requestAnimationFrame(drawMatchLines);setFeedback(feedback,good);updateScore();updateGuide();save()}
 function captureFirst(){let which=state.on?'firstEvidenceOn':'firstEvidenceOff',v=values();state[which]=displayAngle(angle());event('student_measurement','evidence',{reported:state[which],I:v.I,d:v.d,storm:v.storm},`Сохранена улика: ${state.on?'цепь включена':'цепь выключена'}, угол ${num(state[which])}°`);render();setFeedback('Улика сохранена. Сравни показания при двух положениях цепи.')}
 function prepareObservation(){let reading=readDecimal(state.manualReading);if(!Number.isFinite(reading)||reading<0||reading>90){setFeedback('Введи показание прибора числом от 0 до 90 градусов.');return}let v=values();state.pendingObservation={...v,reported:reading,task:state.task+1};render();setFeedback('Карточка создана из твоего числа. Перенеси её в журнал.')}
 function observe(){let o=state.pendingObservation,v=values();if(!o||o.task!==state.task+1||o.I!==v.I||Math.abs(o.d-v.d)>1e-8||o.storm!==v.storm){state.pendingObservation=null;render();setFeedback('Сначала сними и введи показание для текущих условий.');return}let item={...o,angle:PHYSICS_CORE.compass(o.I,o.d,o.storm)};state.obs.push(item);if(!isReadingValid(item))noteDifficulty('reading','Записанное показание прибора потребовало сверки.');if(state.task===2&&repairSince!==null&&state.obs.filter(x=>x.task===3).length-repairSince>=3)repairSince=null;if(state.task===1&&o.d>=.7&&item.angle<12&&isReadingValid(item))state.t2saved=true;event('drag','observation',item,`Ученик: I = ${num(o.I)} А, d = ${num(o.d,2)} м, буря ${o.storm?'вкл':'выкл'} → ${num(o.reported)}°`);state.pendingObservation=null;state.manualReading='';render();setFeedback('Твоё наблюдение записано в журнал.')}
@@ -315,6 +317,11 @@ function wireWork(){const on=(id,ev,fn)=>{let el=$(id);if(el)el.addEventListener
  on('t1next2','click',()=>{if(state.t1stage!=='conclusion')return;if(!state.labConclusion)return setFeedback('Выбери вывод.');state.t1stage='chain';render();return});
  on('t2next','click',()=>{if(state.t2stage!=='experiment')return;const last3=state.obs.filter(x=>x.task===3).slice(-3);if(last3.length<3)return setFeedback('Сделай три замера.');state.t2stage='conclusion';render();return});
  on('t2next2','click',()=>{if(state.t2stage!=='conclusion')return;if(!state.cause)return setFeedback('Выбери объяснение.');state.t2stage='lab';render();return});
+ on('t1next','click',()=>{if(state.t1q>=4)return;state.t1q++;render();return});
+ on('t1submit','click',()=>{if(state.t1answers.some(x=>x===null))return setFeedback('Ответь на все вопросы.');state.t1submitted=true;render();return});
+ on('t2submit','click',()=>{verifyCheck();return});
+ on('match-item','click',function(){if(state.task!==2)return;let i=+this.dataset.idx;if(state.t2sel===i){state.t2sel=null;}else if(state.t2sel===null||typeof state.t2sel==='number'){state.t2sel=i;}render();});
+ on('match-role','click',function(){if(state.task!==2)return;let i=+this.dataset.idx;if(typeof state.t2sel!=='number'||state.t2sel===null)return;if(state.t2matches[state.t2sel]===null){state.t2matches[state.t2sel]=i;}state.t2sel=null;render();});
  on('consoleStart','click',()=>{if(JSON.stringify(state.consoleSlots)!==JSON.stringify(['battery','wire','compass'])){event('difficulty','console_assembly',true,'Детали пульта потребовали перестановки.');setFeedback('Пульт не запускается: проверь назначение каждой детали. Поменяй детали местами и попробуй снова.');repairField='consoleSlots';updateGuide();return}state.consoleStarted=true;state.on=true;repairField=null;event('console_start','panel',true,'Исследовательский пульт запущен');render();setFeedback('Пульт включён. Смотри на стрелку и показание прибора.');});on('consoleReading','input',e=>{state.consoleReading=e.target.value;repairField=null;save()});on('consoleDetector','change',e=>{state.consoleDetector=e.target.value;repairField=null;save()});if($('consoleDetector'))$('consoleDetector').value=state.consoleDetector||'';
  on('zeroReading','input',e=>{state.zeroReading=e.target.value;state.pendingObservation=null;save()});on('onReading','input',e=>{state.onReading=e.target.value;state.pendingObservation=null;save()});
  on('recordZeroOn','click',()=>{let z=readDecimal(state.zeroReading),o=readDecimal(state.onReading);if(!Number.isFinite(z)||!Number.isFinite(o)||z<0||z>90||o<0||o>90){setFeedback('Введи оба показания числами от 0 до 90°.');return}event('student_measurement','compass_pair',{zero:z,on:o,I:state.on?2:0,d:.3,storm:false},`Запись компаса: без тока ${num(z)}°, с током ${num(o)}°`);state.record0=true;render();setFeedback('Измерения записаны в журнал.');});
@@ -326,7 +333,7 @@ function wireWork(){const on=(id,ev,fn)=>{let el=$(id);if(el)el.addEventListener
  on('cause','change',e=>{state.cause=e.target.value;repairField=null;save()});if($('cause'))$('cause').value=state.cause||'';on('answer5','input',e=>{state.answer5=e.target.value;repairField=null;save()});on('answer6','input',e=>{state.answer6=e.target.value;repairField=null;save()});document.querySelectorAll('[data-check]').forEach(el=>el.addEventListener('change',()=>{state.checks[+el.dataset.check]=el.checked;save()}));document.querySelectorAll('[data-drag]').forEach(initDrag);document.querySelectorAll('#work [data-target],#scene [data-target]').forEach(el=>el.addEventListener('click',()=>{if(selected)drop(selected,el.dataset.target)}))
 if(!window._matchWired){window._matchWired=true;$('work').addEventListener('click',e=>{
   const it=e.target.closest('.match-item');
-  if(it){state.matchSel=+it.dataset.idx;render();return}
+  if(it&&state.task!==2){state.matchSel=+it.dataset.idx;render();return}
   const role=e.target.closest('.match-role');
   if(role){const r=+role.dataset.idx,item=state.matchSel;if(item!==null&&item<3){state.consoleMatches=state.consoleMatches||[null,null,null];state.consoleMatches.forEach((v,ii)=>{if(v===r)state.consoleMatches[ii]=null});state.consoleMatches[item]=r;state.matchSel=null;$('work').classList.add('match-pulse');setTimeout(()=>$('work').classList.remove('match-pulse'),600);}render();return}
   if(e.target.id==='connectDone'){const m=state.consoleMatches||[null,null,null];if(m.every((x,i)=>x===i)){state.t0stage='cause';state.matchSel=null;state.matchSlots=[null,null,null];setFeedback('Детали соединены. Теперь сопоставь причины.');render();return}setFeedback('Соедини все детали правильно: источник→энергия, проводник→поле, компас→обнаруживает поле.');return}
@@ -339,12 +346,12 @@ function drop(item,target){undo=snapshot();let ok=false;if(item==='observation'&
 function wireSceneTargets(){document.querySelectorAll('#scene [data-drag]').forEach(initDrag);document.querySelectorAll('#scene [data-target]').forEach(el=>el.addEventListener('click',()=>{if(selected)drop(selected,el.dataset.target)}))}
 function canDrop(item,target){return item.startsWith('module:')&&/^consoleSlot[0-2]$/.test(target)||item.startsWith('chain:')&&/^labSlot[0-2]$/.test(target)||item.startsWith('evidence:')&&/^firstSlot[01]$/.test(target)||item==='observation'&&target==='journal'||['steel','air','coil'].includes(item)&&target==='socket'||item==='crate'&&target==='hook'||item.startsWith('chip:')&&target.startsWith('slot')||item.startsWith('match:')&&/^matchSlot[0-2]$/.test(target)}
 function initDrag(el){let type=el.dataset.drag, start=null,ghost=null,moved=false,timer=null;el.addEventListener('click',e=>{if(moved){moved=false;return}selected=selected===type?null:type;document.querySelectorAll('[data-drag]').forEach(x=>x.classList.toggle('held',x.dataset.drag===selected));$('live').textContent=selected?'Предмет взят. Выберите цель.':'Предмет отпущен.'});el.addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();selected=type;el.classList.add('held');$('live').textContent='Предмет взят. Tab до цели и Enter.'}if(e.key==='Escape'){selected=null;el.classList.remove('held')}});el.addEventListener('pointerdown',e=>{if(e.button!==0)return;start={x:e.clientX,y:e.clientY};moved=false;el.setPointerCapture(e.pointerId)});el.addEventListener('pointermove',e=>{if(!start)return;if(!ghost&&Math.hypot(e.clientX-start.x,e.clientY-start.y)>4){moved=true;ghost=el.cloneNode(true);let r=el.getBoundingClientRect();ghost.classList.add('ghost');ghost.style.width=r.width+'px';ghost.style.height=r.height+'px';document.body.appendChild(ghost);el.classList.add('mutedrag')}if(ghost){ghost.style.left=(e.clientX-ghost.offsetWidth/2)+'px';ghost.style.top=(e.clientY-ghost.offsetHeight/2)+'px';document.querySelectorAll('[data-target]').forEach(t=>{let r=t.getBoundingClientRect();t.classList.toggle('hot',canDrop(type,t.dataset.target)&&e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom)});let r=$('work').getBoundingClientRect();if(e.clientY>r.bottom-24)$('work').scrollTop+=8;if(e.clientY<r.top+24)$('work').scrollTop-=8}});el.addEventListener('pointerup',e=>{if(ghost){ghost.remove();ghost=null;el.classList.remove('mutedrag');let target=document.elementFromPoint(e.clientX,e.clientY)?.closest('[data-target]');if(target)drop(type,target.dataset.target);else setFeedback('Не сюда.');document.querySelectorAll('.hot').forEach(x=>x.classList.remove('hot'))}start=null});el.addEventListener('pointercancel',()=>{if(ghost)ghost.remove();ghost=null;start=null;el.classList.remove('mutedrag')})}
-function enterTask(n){if(n===state.task){render();return}const work=$('work');work.classList.add('switch-out');clearTimeout(window._enterT);window._enterT=setTimeout(()=>{animateClass($('scene'),'scene-arrival',700);undo=null;repairFirst=null;repairSince=null;repairField=null;state.pendingObservation=null;state.manualReading='';$('check').textContent='✓ Проверить';$('check').onclick=check;state.task=n;emotion='calm';dialogueIdx=0;selected=null;feedback='Здесь появится результат проверки.';good=false;state.obs=state.obs||[];if(n===0){state.zeroReading='';state.onReading='';state.record0=false;state.t0stage='connect';state.matchSlots=[null,null,null];state.consoleMatches=[null,null,null];state.matchSel=null;state.consoleStarted=false;state.on=false;state.consoleDetector='';state.t0pos=[0,1,2].sort(()=>Math.random()-0.5);state.t0drift=(Math.random()-0.5)*6}if(n===1){state.d=.3;state.I=0;state.storm=false;state.labReading='';state.labData=[null,null,null];state.labSlots=[null,null,null];state.labConclusion='';state.t1stage='readings'}if(n===2){state.d=.3;state.I=0;state.storm=false;state.t2stage='experiment'}if(n===6){state.r6readings=null;state.r6idx=0}event('enter','task',n+1,`Открыто задание ${n+1}`);render();work.classList.remove('switch-out');work.classList.add('switch-in');requestAnimationFrame(()=>{requestAnimationFrame(()=>{work.classList.remove('switch-in')})})},300)}
+function enterTask(n){if(n===state.task){render();return}const work=$('work');work.classList.add('switch-out');clearTimeout(window._enterT);window._enterT=setTimeout(()=>{animateClass($('scene'),'scene-arrival',700);undo=null;repairFirst=null;repairSince=null;repairField=null;state.pendingObservation=null;state.manualReading='';$('check').textContent='✓ Проверить';$('check').onclick=check;state.task=n;emotion='calm';dialogueIdx=0;selected=null;feedback='Здесь появится результат проверки.';good=false;state.obs=state.obs||[];if(n===0){state.zeroReading='';state.onReading='';state.record0=false;state.t0stage='connect';state.matchSlots=[null,null,null];state.consoleMatches=[null,null,null];state.matchSel=null;state.consoleStarted=false;state.on=false;state.consoleDetector='';state.t0pos=[0,1,2].sort(()=>Math.random()-0.5);state.t0drift=(Math.random()-0.5)*6}if(n===1){state.t1questions=null;state.t1answers=null;state.t1q=0;state.t1submitted=false}if(n===2){state.t2items=null;state.t2matches=null;state.t2shuffled=null;state.t2sel=null}if(n===6){state.r6readings=null;state.r6idx=0}event('enter','task',n+1,`Открыто задание ${n+1}`);render();work.classList.remove('switch-out');work.classList.add('switch-in');requestAnimationFrame(()=>{requestAnimationFrame(()=>{work.classList.remove('switch-in')})})},300)}
 function complete(){undo=null;if(!state.done.includes(state.task)){state.stagePoints[state.task]=(state.checkAttempts[state.task]<=2?1:0);state.done.push(state.task)}emotion='glad';if(state.task===5){state.success=true;state.bonusAwarded=state.firstTryEligible&&state.done.length===6&&scoreTotal()===10&&state.checkAttempts.every(n=>n===1)&&state.theoryItems.every(x=>x.solved&&x.attempts===1)}event('complete','task',state.task+1,`Этап пройден. Балл за этап: ${state.stagePoints[state.task]}.`);save();render();animateClass($('scoreBadge'),'score-changed');animateClass(document.querySelector('.portrait-frame'),'stage-celebration');const lines=['Пульт ожил. Компас показывает действие тока.','Записи готовы и цепочка причин собрана.','Записи пригодятся Болоку. Пойдём в электромастерскую.','Ящик держится. Осталось разобраться с расчётом.','Теперь разберёмся, как обойтись без стали.','У станции есть история, записанная в журнале.'];$('quote').textContent=lines[state.task];setFeedback(state.stagePoints[state.task]?'Этап пройден: получен 1 балл.':'Этап пройден без балла: попытки для балла были исчерпаны.',true)}
 const STAGE_WHY=[
  'Источник обеспечивает питание, ток в проводнике создаёт магнитное поле, а компас реагирует на суммарное поле. Включение пульта изменяет направление стрелки в учебной модели.',
- 'В этой модели при неизменном расстоянии увеличение тока усиливает поле проводника. Компас поворачивается под действием суммарного поля, поэтому угол растёт.',
- 'Изменяя по одному условию, можно различить его влияние. В лаборатории PhET смена полярности меняет направление тока и поля, поэтому стрелка разворачивается.',
+ 'В тесте проверяются знания о магнитном поле тока: ток создаёт поле, компас его обнаруживает, без тока отклонения нет.',
+ 'Сопоставление явлений и причин помогает отделить влияние тока в кабеле от действия магнитной бури и других факторов.',
  'Электромагнит работает при токе в замкнутой цепи. Стальной сердечник усиливает действие катушки. Для груза 15 кг запас 20 % означает грузоподъёмность не менее 18 кг; ток в игре ограничен 2 А.',
  'В игре грузоподъёмность считается по учебной формуле: коэффициент × μ × N × I. Это калибровка модели, а не универсальный физический закон.',
  'Без стального сердечника коэффициент модели меньше, поэтому для того же груза нужен гораздо больший ток. Сравни его с пределом автомата. Сталь усиливает действие поля катушки.',
@@ -353,41 +360,18 @@ const STAGE_WHY=[
 function verifyCheck(){let t=state.task;
 if(t===0){const st0=state.t0stage||'compass';if(st0!=='compass')return setFeedback('Сначала закончи предыдущий шаг.');if(!state.record0)return setFeedback('Запиши оба замера компаса: без тока и с током.');let z=readDecimal(state.zeroReading),o=readDecimal(state.onReading);let exp0=displayAngle(PHYSICS_CORE.compass(0,.3,false)),exp1=displayAngle(angle());if(!Number.isFinite(z)||Math.abs(z-exp0)>2.5)return setFeedback('Без тока компас показывает около 0°.');if(!Number.isFinite(o)||Math.abs(o-exp1)>2.5)return setFeedback('Прибор показывает '+exp1+'°. Считай угол с включённой цепью.');event('student_measurement','compass_pair',{reported:o,zero:z,I:2,d:.3,storm:false},`Компас: без тока ${num(z)}°, с током 2 А — ${num(o)}°`);return complete()}
 if(t===1){
-  if(state.t1stage==='readings'){
-    if(!state.labData.every(x=>x!==null))return setFeedback('Запиши все три показания.');
-    let bad=state.labData.findIndex((x,i)=>Math.abs(x-displayAngle(PHYSICS_CORE.compass(i,.3,false)))>2.5);
-    if(bad>=0){repairIndex=bad;return setFeedback(`Показание при ${bad} А не совпадает с компасом. Установи этот ток и перезапиши число.`)}
-    state.t1stage='conclusion';render();return setFeedback('Переходи к выводу из измерений.');
-  }
-  if(state.t1stage==='conclusion'){
-    if(state.labConclusion!=='grows')return setFeedback('Выбери вывод: отклонение растёт с током.');
-    state.t1stage='chain';render();return setFeedback('Переходи к цепочке причин.');
-  }
-  if(state.t1stage!=='chain')return setFeedback('Сначала заверши предыдущий шаг.');
-  if(JSON.stringify(state.labSlots)!==JSON.stringify(['current','field','needle']))return setFeedback('Цепочка неверна. Сначала ток, потом поле, потом стрелка.');
-  event('student_calculation','cause_chain',state.labSlots,'Ученик составил цепочку причин и следствий.');
+  if(!state.t1submitted)return setFeedback('Ответь на все 5 вопросов и отправь тест.');
+  let correct=state.t1questions.reduce((n,x,i)=>n+(state.t1answers[i]===x.c?1:0),0);
+  if(correct<4)return setFeedback(`Правильно ${correct} из 5. Нужно минимум 4.`);
+  event('student_test','t1_test',{correct,total:5},'Ученик прошёл тест по току и компасу.');
   return complete();
-}
-if(t===2){
-  if(state.t2stage==='experiment'){
-    const last3=state.obs.filter(x=>x.task===3).slice(-3);
-    if(last3.length<3)return setFeedback('Сделай три замера.');
-    if(!last3.every(isReadingValid))return setFeedback('Одно из трёх показаний не совпадает с прибором. Повтори записи.');
-    let diff=(x,y)=>['I','d','storm'].filter(k=>x[k]!==y[k]).length;
-    if(!(diff(last3[0],last3[1])===1&&diff(last3[1],last3[2])===1&&last3.some(x=>x.I!==last3[0].I)&&last3.some(x=>x.storm!==last3[0].storm)))return setFeedback('Меняй по одному параметру за раз.');
-    state.t2stage='conclusion';render();return setFeedback('Переходи к выбору объяснения.');
-  }
-  if(state.t2stage==='conclusion'){
-    if(!state.cause)return setFeedback('Выбери объяснение.');
-    if(state.cause!=='wire')return setFeedback('Выбери объяснение: кабель, буря действует независимо.');
-    state.t2stage='lab';render();return setFeedback('Переходи к лабораторному испытанию.');
-  }
-  if(state.t2stage!=='lab')return setFeedback('Сначала заверши предыдущий шаг.');
-  if(!state.phetOpened)return setFeedback('Сначала открой лабораторию PhET и посмотри, как меняется стрелка при смене полярности.');
-  if(state.phetConclusion!=='reverse')return setFeedback('Вывод по PhET не совпадает с наблюдением. Сравни направление красной стрелки при двух полярностях.');
+}if(t===2){
+  if(!state.t2matches.every(x=>x!==null))return setFeedback('Соедини все 6 пар.');
+  let correct=state.t2shuffled.reduce((n,i)=>n+(state.t2matches[i]===i?1:0),0);
+  if(correct<6)return setFeedback(`Соединено правильно ${correct} из 6. Проверь ошибки.`);
+  event('student_matching','t2_match',{correct,total:6},'Ученик составил сопоставление явлений и причин.');
   return complete();
-}
-if(t===3){if(!PHYSICS_CORE.circuit(state.wires,state.circuitClosed)){state.circuitPage='wire';render();return setFeedback('Цепь не замкнута. Соедини источник, выключатель и обмотку, потом замкни выключатель.')}if(!state.coil||state.core!=='steel')return setFeedback('Для подъёма установи обмотку и стальной сердечник в гнездо магнита.');if(state.tripped||state.craneI>2)return setFeedback('Автомат отключил ток: превышен лимит 2 А. Подожди восстановления и уменьши ток.');if(!state.crate)return setFeedback('Ящик не закреплён. Когда грузоподъёмность позволит, перенеси его на крюк.');if(mass()<18)return setFeedback('Недостаточно грузоподъёмности для запаса: кран должен удерживать не менее 18 кг.');return complete()}
+}if(t===3){if(!PHYSICS_CORE.circuit(state.wires,state.circuitClosed)){state.circuitPage='wire';render();return setFeedback('Цепь не замкнута. Соедини источник, выключатель и обмотку, потом замкни выключатель.')}if(!state.coil||state.core!=='steel')return setFeedback('Для подъёма установи обмотку и стальной сердечник в гнездо магнита.');if(state.tripped||state.craneI>2)return setFeedback('Автомат отключил ток: превышен лимит 2 А. Подожди восстановления и уменьши ток.');if(!state.crate)return setFeedback('Ящик не закреплён. Когда грузоподъёмность позволит, перенеси его на крюк.');if(mass()<18)return setFeedback('Недостаточно грузоподъёмности для запаса: кран должен удерживать не менее 18 кг.');return complete()}
 if(t===4){let need=['0,000125','μ','N','I'],wrong=state.slots.map((x,i)=>!x||!need.includes(x)||state.slots.indexOf(x)!==i);if(wrong.some(Boolean)){document.querySelectorAll('.slot').forEach((el,i)=>el.classList.toggle('wrong',wrong[i]));return setFeedback('В формуле нужны коэффициент, μ, N и I. Сверь подсвеченные слоты с теорией.')}if(Math.abs(readDecimal(state.answer5)-11.25)<.005){event('student_calculation','m_max',{reported:readDecimal(state.answer5),formula:state.slots},`Ученик рассчитал грузоподъёмность: ${state.answer5} кг`);return complete()}return setFeedback('Число не совпадает с расчётом. Перемножь все четыре множителя и проверь единицу массы — килограмм.')}
 if(t===5){if(state.rescueChoice!=='steel')return setFeedback('Этот план не учитывает лимит автомата и работу электромагнита. Сравни варианты и роль сердечника.');if(state.coreReason!=='amplifies')return setFeedback('Роль сердечника неверна. Сравни действие катушки со сталью и с воздухом.');if(Math.abs(readDecimal(state.answer6)-PHYSICS_CORE.requiredCurrent(15,1,500))<.01&&state.checks.every(Boolean)){event('student_calculation','required_current',{reported:readDecimal(state.answer6)},`Ученик рассчитал ток: ${state.answer6} А`);return complete()}return setFeedback('Проверь расчёт тока и отмеченные выводы. Вырази I из формулы и сравни с лимитом автомата.')}
 }
@@ -409,41 +393,17 @@ function showReview(title,result,why,continuation,buttonText='Вернуться
 function missingStageAnswer(t){
  if(t===0){const st0=state.t0stage||'connect';if(st0==='connect'&&!(state.consoleMatches||[null,null,null]).every((x,i)=>x===i))return 'Соедини все детали с их ролями.';if(st0==='cause'&&(!state.matchSlots||!state.matchSlots.every(Boolean)))return 'Расставь все причины на свои места.';if(st0==='compass'&&!state.record0)return 'Запиши оба замера компаса: без тока и с током.';return ''};
  if(t===1){
-  if(state.t1stage==='readings'){
-    if(!state.labData.every(x=>x!==null))return 'Запиши все три показания при токах 0, 1 и 2 А.';
-    let bad=state.labData.findIndex((x,i)=>Math.abs(x-displayAngle(PHYSICS_CORE.compass(i,.3,false)))>2.5);
-    if(bad>=0)return `Показание при ${bad} А не совпадает с компасом. Перезапиши.`;
-    return 'Нажми «Далее — вывод из измерений».';
-  }
-  if(state.t1stage==='conclusion'){
-    if(!state.labConclusion)return 'Выбери вывод: отклонение растёт с током.';
-    return 'Нажми «Далее — цепочка причин».';
-  }
-  if(state.t1stage==='chain'){
-    if(state.labSlots.some(x=>!x))return 'Собери цепочку причин и следствий.';
-    return '';
-  }
+  if(!state.t1questions)return '';
+  let answered=state.t1answers.filter(x=>x!==null).length;
+  if(answered<5)return `Ответь на все 5 вопросов (отвечено ${answered} из 5).`;
+  if(!state.t1submitted)return 'Нажми «Отправить тест».';
   return '';
-}
- if(t===2){
-  if(state.t2stage==='experiment'){
-    const last3=state.obs.filter(x=>x.task===3).slice(-3);
-    if(last3.length<3)return 'Сделай три замера при разных условиях.';
-    if(!last3.every(isReadingValid))return 'Одно из показаний не совпадает с прибором. Перезапиши.';
-    return 'Нажми «Далее — вывод из наблюдений».';
-  }
-  if(state.t2stage==='conclusion'){
-    if(!state.cause)return 'Выбери объяснение наблюдений.';
-    return 'Нажми «Далее — лабораторное испытание».';
-  }
-  if(state.t2stage==='lab'){
-    if(!state.phetOpened)return 'Открой лабораторию PhET.';
-    if(!state.phetConclusion)return 'Выбери результат опыта.';
-    return '';
-  }
+} if(t===2){
+  if(!state.t2items)return '';
+  let connected=state.t2matches.filter(x=>x!==null).length;
+  if(connected<6)return `Соедини все 6 пар (соединено ${connected} из 6).`;
   return '';
-}
- if(t===3&&!state.wires.length&&!state.coil&&!state.crate)return 'Сначала собери цепь и подготовь электромагнит.';
+} if(t===3&&!state.wires.length&&!state.coil&&!state.crate)return 'Сначала собери цепь и подготовь электромагнит.';
  if(t===4&&(state.slots.some(x=>!x)||!String(state.answer5||'').trim()))return 'Заполни все четыре слота формулы и введи число.';
  if(t===5&&(!state.rescueChoice||!state.coreReason||!String(state.answer6||'').trim()||!state.checks.some(Boolean)))return 'Введи расчёт, отметь выводы, выбери план и роль сердечника.';
  return '';
