@@ -43,6 +43,9 @@ window.PHET_DATA="PCFET0NUWVBFIEhUTUw+CjwhLS0gc2F2ZWQgZnJvbSB1cmw9KDAwMjYpaHR0cH
 .test-review .review-answer{display:block;font-size:13px}
 .test-review .review-row.ok .review-answer{color:#2C5F5F}
 .test-review .review-row.bad .review-answer{color:#B4512F}
+.graph-reading{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0 4px}
+.graph-reading label{font-size:13px;color:var(--muted)}
+.graph-reading .answer-input{width:92px}
 .reading-table{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;font-variant-numeric:tabular-nums}
 .reading-table span{padding:5px 9px;border-radius:9px;background:#f3ead8;font-size:13px}
 .reading-table span.done{background:#e6efe4}
@@ -165,7 +168,7 @@ if(t===1){
   h+=slider('Ток I','current',0,2,1,state.I,'А',0);
   h+=`<div class="compass-pic-wrap"><img class="compass-bg" src="${img('compass')}"><div class="compass-needle" style="--needle:${angle().toFixed(2)}deg"></div></div>`;
   const cur=g.readings[state.I];
-  h+=`<div class="reading-row"><label for="gReading" id="gLabel">Угол при ${num(state.I,0)} А, °</label><input class="answer-input" id="gReading" inputmode="decimal" value="${esc(cur!==null?num(cur):(g.draft??''))}" placeholder="0,0"><button class="control" id="gRecord">${cur===null?'Записать':'Перезаписать'}</button></div>`;
+  h+=`<div class="graph-reading"><label for="gReading" id="gLabel">Угол при ${num(state.I,0)} А, °</label><input class="answer-input" id="gReading" inputmode="decimal" value="${esc(cur!==null?num(cur):(g.draft??''))}" placeholder="0,0"><button class="control" id="gRecord">${cur===null?'Записать':'Перезаписать'}</button></div>`;
   h+=`<div class="reading-table">`+[0,1,2].map(I=>`<span class="${g.readings[I]!==null?'done':''}">${I} А: ${g.readings[I]!==null?num(g.readings[I])+'°':'—'}</span>`).join('')+`</div>`;
   h+=`<div class="small">Записано ${recorded} из 3 замеров.</div>`;
   if(recorded===3){
