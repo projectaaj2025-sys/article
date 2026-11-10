@@ -22,6 +22,12 @@ window.PHET_DATA="PCFET0NUWVBFIEhUTUw+CjwhLS0gc2F2ZWQgZnJvbSB1cmw9KDAwMjYpaHR0cH
 .match-item.matched,.match-role.matched{background:#e7f3e4;border-color:#2c5f5f;color:#1e5e2e}.match-item.bad,.match-role.bad{background:#fbeee8;border-color:#B4512F;color:#8a3b1f}
 .match-item.matched::after,.match-role.matched::after{content:' ✔';color:#1e5e2e;font-weight:bold}
 .match-pulse{animation:pulse .6s ease-in-out}
+.review-answers{margin:8px 0;padding:7px 9px;border:1.5px solid var(--border);border-radius:9px;background:#fffdf5;max-height:232px;overflow:auto;display:flex;flex-direction:column;gap:3px;font-size:11.5px;line-height:1.3}
+.review-answers b{font-size:11px;letter-spacing:.5px;color:#8a7d69;text-transform:uppercase}
+.ra-row{display:block;padding:3px 6px;border-radius:6px;background:#f5f8f4}
+.ra-row.no{background:#fbeee8;color:#8a3b1f}
+.ra-right{color:#8a7d69;font-size:11px}
+.ra-row.ok{color:#1e5e2e}
 @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
 .compass-pic-wrap{position:relative;display:inline-block;width:170px;height:170px;margin:6px 0;border:1.5px solid var(--border);border-radius:50%;overflow:hidden;background:#f8f1df}
 .compass-bg{width:100%;height:auto;display:block}
@@ -170,6 +176,16 @@ const EM_PARTS=[
  {id:'cable',name:'Отрезок кабеля',img:'cable_seg'}
 ];
 function emPart(id){return EM_PARTS.find(p=>p.id===id)||null}
+const T2_SHORT=[
+ ['Стрелка у провода отклонилась','Поле тока вокруг проводника'],
+ ['Без тока — на север','Только поле Земли'],
+ ['Ток вдвое — отклонение больше','Поле растёт с силой тока'],
+ ['Обратный ток — обратное отклонение','Направление поля = направление тока'],
+ ['В бурю компас врёт','Внешнее поле бури'],
+ ['Со сталью держит груз','Ферромагнетик усиливает поле'],
+ ['Больше витков — действует дальше','Поле растёт с витками'],
+ ['Вплотную сильнее, чем вдали','Поле слабеет с расстоянием']
+];
 function emState(){const e=(state.em&&typeof state.em==='object')?state.em:{};if(!e.slots||typeof e.slots!=='object')e.slots={core:null,coil:null,source:null,switch:null};EM_SLOTS.forEach(sl=>{if(e.slots[sl.k]===undefined)e.slots[sl.k]=null;if(e.slots[sl.k]&&!emPart(e.slots[sl.k]))e.slots[sl.k]=null});e.turns=Number(e.turns)>=200?200:20;e.current=Number(e.current)>=2?2:.5;if(e.sel===undefined)e.sel=null;state.em=e;return e}
 function emPlaced(e){e=e||emState();return EM_SLOTS.filter(sl=>!!e.slots[sl.k]).length}
 function emAssemblyOk(e){e=e||emState();return EM_SLOTS.every(sl=>e.slots[sl.k]===sl.right)}
@@ -536,13 +552,31 @@ if(t===5){if(state.rescueChoice!=='steel')return setFeedback('Этот план 
   return complete();
 }
 }
+function answersFor(t,passed){
+  if(t===1){const e=emState();
+    let h='<b>Твоя сборка</b>';
+    EM_SLOTS.forEach(sl=>{const pid=e.slots[sl.k],ok=pid===sl.right,p=pid?emPart(pid):null;
+      if(!passed&&!ok)h+=`<span class="ra-row no">${esc(sl.label)}: ✖ ${esc(p?p.name:'пусто')}</span>`;
+      else h+=`<span class="ra-row ${ok?'ok':'no'}">${esc(sl.label)}: ${ok?'✔ ':'✖ '}${esc(p?p.name:'пусто')}${ok?'':` <span class="ra-right">→ нужен ${esc(emPart(sl.right).name)}</span>`}</span>`});
+    h+=`<span class="ra-row ${e.turns>=200?'ok':'no'}">Витки: ${e.turns}${e.turns>=200?'':' <span class="ra-right">→ нужно 200</span>'}</span>`;
+    h+=`<span class="ra-row ${e.current>=2?'ok':'no'}">Ток: ${num(e.current)} А${e.current>=2?'':' <span class="ra-right">→ нужно 2 А</span>'}</span>`;
+    return h}
+  if(t===2){if(!state.t2items)return '';
+    let h='<b>Наблюдение → причина</b>',n=0;
+    state.t2items.forEach((it,i)=>{const r=state.t2matches?state.t2matches[i]:null,ok=r===i;
+      if(!passed&&!ok)return;
+      n++;const sh=T2_SHORT[i]||[it.obs,it.cause];
+      h+=`<span class="ra-row ${ok?'ok':'no'}">${esc(sh[0])} — ${esc(r===null||r===undefined?'нет пары':(T2_SHORT[r]?T2_SHORT[r][1]:state.t2items[r].cause))}${ok?'':` <span class="ra-right">→ верно: ${esc(sh[1])}</span>`}</span>`});
+    return n?h:''}
+  return '';
+}
 function stageWhy(t){
  if(t===0)return `Верных ответов: ${testCorrect()} из 5. `+STAGE_WHY[t];
- if(t===1){const e=emState();return `Твой электромагнит: ${e.core==='steel'?'стальной сердечник':'без сердечника'}, ${e.turns} витков, ${num(e.current)} А — сила поля ${emStrength()}%. `+STAGE_WHY[t]}
+ if(t===1){return `Сила поля твоего электромагнита — ${emStrength()}%. `+STAGE_WHY[t]}
  if(t===3)return `Сейчас модель показывает грузоподъёмность ${num(mass(),2)} кг. `+STAGE_WHY[t];
  return STAGE_WHY[t];
 }
-function showReview(title,result,why,continuation,buttonText='Вернуться к заданию'){openModal(title,`<div class="review-result"><p>${esc(result)}</p><div class="review-why"><b>Почему?</b> ${esc(why||'Смотри карточку «Теория» к этому этапу.')}</div></div><div class="reward-actions"><button class="btn primary" id="reviewContinue">${esc(buttonText)}</button></div>`);$('reviewContinue').onclick=continuation||closeModal}
+function showReview(title,result,why,continuation,buttonText='Вернуться к заданию',answers=''){openModal(title,`<div class="review-result"><p>${esc(result)}</p>${answers?`<div class="review-answers">${answers}</div>`:''}<div class="review-why"><b>Почему?</b> ${esc(why||'Смотри карточку «Теория» к этому этапу.')}</div></div><div class="reward-actions"><button class="btn primary" id="reviewContinue">${esc(buttonText)}</button></div>`);$('reviewContinue').onclick=continuation||closeModal}
 
 function missingStageAnswer(t){
  if(t===0){if(!state.t1questions)return '';const answered=state.t1answers.filter(x=>x!==null).length;if(answered<5)return `Ответь на все 5 вопросов (отвечено ${answered} из 5).`;if(!state.t1submitted)return 'Нажми «Отправить тест».';if(testCorrect()<4)return `Верно ${testCorrect()} из 5. Нужно минимум 4 — пройди тест заново.`;return ''}
@@ -565,7 +599,7 @@ function missingStageAnswer(t){
  if(t===6&&(!state.r6readings||!state.r6readings.every(x=>x.recorded!==null)))return 'Сними и запиши все три показания компаса.';
  return '';
 }
-function check(){if(modalName)return;let t=state.task;if(state.done.includes(t)){if(t===5)showEnding();else enterTask(t+1);return}let missing=missingStageAnswer(t);if(missing){setFeedback(missing+' Попытка не потрачена.');updateGuide();return}state.checkAttempts[t]=(state.checkAttempts[t]||0)+1;event('check_attempt','stage',state.checkAttempts[t],`Проверка этапа ${t+1}`);verifyCheck();let passed=state.done.includes(t),result=feedback;if(!passed){state.firstTryEligible=false;noteDifficulty('check','Неудачная проверка этапа: '+feedback);if(t===0&&feedback.includes('Пульт не подготовлен'))repairField='consoleSlots';if(t===0&&feedback.includes('Показание не совпадает'))repairField='consoleReading';if(t===0&&feedback.includes('Установи все детали'))repairField='consoleSlots';if(t===0&&feedback.includes('Включи цепь'))repairField='power';if(t===0&&feedback.includes('Запиши угол с выключенной'))repairField='zeroReading';if(t===0&&feedback.includes('Прибор показывает'))repairField='onReading';if(t===0&&feedback.includes('Компас не измеряет'))repairField='consoleDetector';if(t===0&&feedback.includes('причинно-следственные'))repairField='matchSlots';if(t===1&&feedback.includes('Показание при'))repairField='labReading';if(t===1&&feedback.includes('Цепочка событий'))repairField='labSlots';if(t===0&&feedback.includes('Вывод не соответствует'))repairField='firstConclusion';if(t===4&&feedback.includes('Число не совпадает'))repairField='answer5';if(t===5&&feedback.includes('Проверь расчёт'))repairField='answer6';if(t===5&&feedback.includes('Этот план'))repairField='rescueChoice';if(t===5&&feedback.includes('Роль сердечника'))repairField='coreReason';if(t===2&&feedback.toLowerCase().includes('вывод об опыте phet'))repairField='phetConclusion';if(t===2&&(feedback.includes('показаний не совпадает')||feedback.includes('Сравнение пока не'))){let a=state.obs.filter(o=>o.task===3),last=a.slice(-3),diff=(x,y)=>['I','d','storm'].filter(k=>x[k]!==y[k]).length;let recordsOK=last.length===3&&last.every(isReadingValid)&&diff(last[0],last[1])===1&&diff(last[1],last[2])===1&&last.some(x=>x.I!==last[0].I)&&last.some(x=>x.storm!==last[0].storm);if(recordsOK)repairField='cause';else repairSince=a.length}result+=' '+(state.checkAttempts[t]===1?'Осталась одна попытка за балл.':'Попытки за балл исчерпаны, но ты можешь исправить ответ и продолжить.');setFeedback(result)}save();updateScore();updateGuide();showReview(passed?'Этап пройден':'Проверка: нужно исправить',result,stageWhy(t),passed&&t===5?showEnding:passed?()=>enterTask(t+1):closeModal,passed?(t===5?'Посмотреть итог':'Дальше ▸'):'Вернуться к заданию')}
+function check(){if(modalName)return;let t=state.task;if(state.done.includes(t)){if(t===5)showEnding();else enterTask(t+1);return}let missing=missingStageAnswer(t);if(missing){setFeedback(missing+' Попытка не потрачена.');updateGuide();return}state.checkAttempts[t]=(state.checkAttempts[t]||0)+1;event('check_attempt','stage',state.checkAttempts[t],`Проверка этапа ${t+1}`);verifyCheck();let passed=state.done.includes(t),result=feedback;if(!passed){state.firstTryEligible=false;noteDifficulty('check','Неудачная проверка этапа: '+feedback);if(t===0&&feedback.includes('Пульт не подготовлен'))repairField='consoleSlots';if(t===0&&feedback.includes('Показание не совпадает'))repairField='consoleReading';if(t===0&&feedback.includes('Установи все детали'))repairField='consoleSlots';if(t===0&&feedback.includes('Включи цепь'))repairField='power';if(t===0&&feedback.includes('Запиши угол с выключенной'))repairField='zeroReading';if(t===0&&feedback.includes('Прибор показывает'))repairField='onReading';if(t===0&&feedback.includes('Компас не измеряет'))repairField='consoleDetector';if(t===0&&feedback.includes('причинно-следственные'))repairField='matchSlots';if(t===1&&feedback.includes('Показание при'))repairField='labReading';if(t===1&&feedback.includes('Цепочка событий'))repairField='labSlots';if(t===0&&feedback.includes('Вывод не соответствует'))repairField='firstConclusion';if(t===4&&feedback.includes('Число не совпадает'))repairField='answer5';if(t===5&&feedback.includes('Проверь расчёт'))repairField='answer6';if(t===5&&feedback.includes('Этот план'))repairField='rescueChoice';if(t===5&&feedback.includes('Роль сердечника'))repairField='coreReason';if(t===2&&feedback.toLowerCase().includes('вывод об опыте phet'))repairField='phetConclusion';if(t===2&&(feedback.includes('показаний не совпадает')||feedback.includes('Сравнение пока не'))){let a=state.obs.filter(o=>o.task===3),last=a.slice(-3),diff=(x,y)=>['I','d','storm'].filter(k=>x[k]!==y[k]).length;let recordsOK=last.length===3&&last.every(isReadingValid)&&diff(last[0],last[1])===1&&diff(last[1],last[2])===1&&last.some(x=>x.I!==last[0].I)&&last.some(x=>x.storm!==last[0].storm);if(recordsOK)repairField='cause';else repairSince=a.length}result+=' '+(state.checkAttempts[t]===1?'Осталась одна попытка за балл.':'Попытки за балл исчерпаны, но ты можешь исправить ответ и продолжить.');setFeedback(result)}save();updateScore();updateGuide();showReview(passed?'Этап пройден':'Проверка: нужно исправить',result,stageWhy(t),passed&&t===5?showEnding:passed?()=>enterTask(t+1):closeModal,passed?(t===5?'Посмотреть итог':'Дальше ▸'):'Вернуться к заданию',answersFor(t,passed))}
 
 function openModal(title,body){modalName=title;$('modals').innerHTML=`<div class="overlay" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="modal"><div class="modalhead"><h2>${esc(title)}</h2><button class="close" id="closeModal" aria-label="Закрыть">✕</button></div><div class="modalbody">${body}</div></div></div>`;$('closeModal').onclick=closeModal;$('closeModal').focus()}
 function closeModal(){const pend=window._queuedBag;window._queuedBag=null;$('modals').innerHTML='';modalName='';storyState=null;if(pend)setTimeout(()=>showBagToast(pend),120)}
